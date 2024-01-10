@@ -2,7 +2,7 @@
 name: Sous-tâche
 about: Sous-tâche de user story
 title: ''
-labels: ''
+labels: sous-tâche
 assignees: ''
 
 ---
