@@ -2,15 +2,10 @@
 name: Feature
 about: Suggest an idea for this project
 title: ''
-labels: Feature
+labels: feature
 assignees: ''
 
 ---
 
-## Problème
+## Travail à faire
 
-Description de problème
-
-## Solution 
-
-Proposition d'une solution

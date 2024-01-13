@@ -1,10 +1,14 @@
 ---
-name: Sous-tâche
-about: Sous-tâche de user story
+name: Sous tâche
+about: Suggest an idea for this project
 title: ''
 labels: sous-tâche
 assignees: ''
 
 ---
 
-Tâche technique
+## Travail à faire
+
+##  Livrables
+
+
