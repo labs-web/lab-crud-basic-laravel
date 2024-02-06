@@ -202,3 +202,4 @@ You need to add the `adminLte` folders [`disk` and `plugins`] to the `Public` fo
 [Reference Laravel views](https://laravel.com/docs/10.x/views#main-content)
 
 ___
+
