@@ -4,7 +4,8 @@ title: structure des dossiers
 order: 2
 ---
 <!--  -->
-## structure des dossiers
+## backlog
+### structure des dossiers
 - DOCS
   - Index.md
   - Introduction
@@ -16,6 +17,6 @@ order: 2
     - images
     - Conclusion.md
   - Backlog
-    - Structure_de_dossier
+    - backlog.md
   -  Rapport.md
   -  Présentation.html
