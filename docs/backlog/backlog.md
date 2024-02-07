@@ -3,8 +3,9 @@ layout: default
 title: structure des dossiers
 order: 2
 ---
-<!--  -->
+
 ## backlog
+<!-- note -->
 ### structure des dossiers
 - DOCS
   - Index.md
@@ -20,3 +21,4 @@ order: 2
     - backlog.md
   -  Rapport.md
   -  Présentation.html
+<!-- new slide -->
