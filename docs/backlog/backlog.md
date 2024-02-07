@@ -5,7 +5,6 @@ order: 2
 ---
 
 ## backlog
-<!-- note -->
 ### structure des dossiers
 <!-- note -->
 - DOCS
