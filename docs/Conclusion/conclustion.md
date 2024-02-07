@@ -8,4 +8,3 @@ order: 3
 <!-- note --> 
 A fin de ce lab te doit capable de réaléser des projet crud avec la framework laravel 
 
-<!-- new slide -->
