@@ -1,205 +1,46 @@
-# labs web lab crud basic laravel
+#  
 
+- Référence :   
 
-## Travail à faire
+ 
 
-- Créer le `CRUD` des tâches
-- Inclure la `recherche` et `filter` en utilisant `AJAX`
-- Ajouter la `pagination`
-- Ajouter la base de données incluant la table des projets dans les `seeders`
-- `adminLte`
+## Backlog 
 
-___
-## Présentation :
-[Présentation Live coding Lab Laravel Basic](https://docs.google.com/presentation/d/176TlPBFBSugG85ieaXXGPzOTf3MoXjWpkF5mYHJykJQ/edit?usp=sharing)
-___
-## Installation Laravel 
+Le backlog est une liste ordonées des tâches 
 
-```bash
-composer create-project laravel/laravel .
-```
+- **chapitre** 
+  - [1.backlog.md](./Backlog/chapitre/1.backlog.md) 
+- **exposé** 
+  - [1.exposé-ui-crud.md](./Backlog/exposé/1.exposé-ui-crud.md) 
+  - [2.exposé-material-design.md](./Backlog/exposé/2.exposé-material-design.md) 
+- **feature** 
+  - [1.backlog.md](./Backlog/feature/1.backlog.md) 
+  - [2.creation-app.md](./Backlog/feature/2.creation-app.md) 
+  - [3.installation-packages.10.md](./Backlog/feature/3.installation-packages.10.md) 
+  - [4.tableau-bord-dmin.8.md](./Backlog/feature/4.tableau-bord-dmin.8.md) 
+  - [5.cas-utilisation.md](./Backlog/feature/5.cas-utilisation.md) 
+  - [6.diagramme-classe.md](./Backlog/feature/6.diagramme-classe.md) 
+  - [7.maquettage.md](./Backlog/feature/7.maquettage.md) 
+  - [8.jeux-test.md](./Backlog/feature/8.jeux-test.md) 
+  - [9.crud-tâches.md](./Backlog/feature/9.crud-tâches.md) 
+- **sous-tâche** 
+  - [1.Clean projet et init l'historique de git.11.md](./Backlog/sous-tâche/1.Clean projet et init l'historique de git.11.md) 
+  - [init-présentation.md](./Backlog/sous-tâche/init-présentation.md) 
+  - [init-rapport.md](./Backlog/sous-tâche/init-rapport.md) 
+- **thème** 
+  - [1.lab-crud-laravel-basic.15.md](./Backlog/thème/1.lab-crud-laravel-basic.15.md) 
+## Livrables 
 
-[Reference Laravel Installation](https://laravel.com/docs/10.x)
-___
+ 
 
-## Databases
-## 1. Env
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=lab_crud_laravel_basic
-DB_USERNAME=root
-DB_PASSWORD=solicoders
-```
+- /Backlog 
+  - Backlog 
+- /docs 
+  - Documentation 
+## Références 
 
-### 2. Migrations
+ 
 
-```bash
-php artisan make:migration create_projects_table
-php artisan make:migration create_tasks_table
-```
-
-```php
-Schema::create('projects', function (Blueprint $table) {
-    $table->id();
-    $table->string('name', 50)->unique();
-    $table->text('description')->nullable();
-    $table->timestamps();
-});
-```
-
-```php
-Schema::create('tasks', function (Blueprint $table) {
-    $table->id();
-    $table->string('name', 50)->unique();
-    $table->text('description')->nullable();
-    $table->unsignedBigInteger('project_id');
-    $table->timestamps();
-    $table->foreign('project_id')->references('id')->on('projects');
-});
-```
-#### Running Migrations:
-```bash
-php artisan migrate
-```
-[Reference Laravel Migrations](https://laravel.com/docs/10.x/migrations#main-content)
-
-
-### 3. Seeders
-
-```bash
-php artisan make:seeder ProjectSeeder
-php artisan make:seeder TaskSeeder
-```
-
-#### ProjectSeeder file
-```php
-public function run(): void
-{
-    Project::create([
-        'name' => 'Portfolio',
-        'description' => 'Développement d\'un site web mettant en valeur nos compétences.',
-    ]);
-
-    Project::create([
-        'name' => 'Arbre des compétences',
-        'description' => 'Création d\'une application web pour l\'évaluation des compétences.',
-    ]);
-
-    Project::create([
-        'name' => 'CNMH',
-        'description' => 'Création d\'une application web pour la gestion des patients de centre CNMH.',
-    ]);
-}
-```
-```php
-
-public function run(): void
-    {
-        Task::create([
-            'name' => 'Design Product Pages',
-            'description' => 'Create user-friendly product pages with images and descriptions',
-            'project_id' => '1',
-        ]);
-
-        Task::create([
-            'name' => 'Implement Shopping Cart',
-            'description' => 'Develop a functional shopping cart for users to add and manage items',
-            'project_id' => '1',
-        ]);
-
-    }
-
-```
-
-#### DatabaseSeeder file
-```php
-class DatabaseSeeder extends Seeder
-{
-    public function run(): void
-    {
-        $this->call([
-            ProjectSeeder::class,
-        ]);
-    }
-}
-```
-#### Running Seeders
-```bash
-php artisan db:seed
-
-```
-[Reference Laravel seeders](https://laravel.com/docs/10.x/seeding#writing-seeders)
-
-___
-
-## Routing
-
-```php
-
-Route::get('/', [TaskController::class, 'index'])->name('index');
-
-Route::get('create', [TaskController::class, 'create'])->name('create');
-Route::post('store', [TaskController::class, 'store'])->name('store');
-
-Route::get('{task}/edit', [TaskController::class, 'edit'])->name('edit');
-Route::put('{task}/update', [TaskController::class, 'update'])->name('update');
-
-
-Route::delete('{task}/destroy', [TaskController::class, 'destroy'])->name('destroy');
-Route::get('{task}/show',[TaskController::class,'show'])->name('show');
-
-```
-
-[Reference Laravel Routing](https://laravel.com/docs/10.x/routing#main-content)
-
-___
-## Models
-
-```bash
-php artisan make:model Project -m
-php artisan make:model Task -m
-```
-___
-
-
-
-## Controllers
-```bash
-php artisan make:controller TaskController -r
-
-```
-[Reference Laravel Controllers](https://laravel.com/docs/10.x/controllers#main-content)
-___
-
-## Views
-
-```bash
-php artisan make:view Tasks.index
-php artisan make:view Tasks.create
-php artisan make:view Tasks.edit
-
-php artisan make:view Layouts.Layout
-php artisan make:view Layouts.Footer
-php artisan make:view Layouts.Navbar
-php artisan make:view Layouts.Sidebar
-php artisan make:view Layouts.Error404
-
-```
-___
-
-## Request
-
-```bash
-php artisan make:request FormTaskRequest
-```
-
-### Use AdminLte
-
-You need to add the `adminLte` folders [`disk` and `plugins`] to the `Public` folder
-
-[Reference Laravel views](https://laravel.com/docs/10.x/views#main-content)
-
-___
+- [Rapport](https://labs-web.github.io/lab-crud-laravel-basic/rapport.html) 
+- [Presentation ]((https://labs-web.github.io/lab-crud-laravel-basic/presentation.html)) 
 
