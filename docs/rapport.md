@@ -3,13 +3,11 @@ layout: default
 order: 1
 ---
 
-{% assign pages = site.pages | sort: "order" %}
+{% assign chapitres = site.pages | sort: "order" %}
 
-{% for page in pages %}
-  {% if page.url != "/feed.xml" and  page.url != "/"   and page.url != "/assets/css/style.css"   %}
-
-{{ page.content | markdownify }}
-
+{% for chapitre in chapitres %}
+  {% if chapitre.title %}
+    {{- chapitre.content -}}
   {% endif %}
-
 {% endfor %}
+
