@@ -1,10 +1,13 @@
 ---
 layout: default
-slug: /index
+order: 1
 ---
-## Rapport 
 
-[Rapport](https://labs-web.github.io/lab-crud-laravel-basic/rapport.html)
-
-## Présentation 
-[Présentation]()
+{% assign pages = site.pages | sort: "order" %}
+{% for page in pages %}
+ {% if page.chapitre %}
+    {{- page.content | markdownify -}}
+  {% endif %}
+{% endfor %}
+ 
+ 
