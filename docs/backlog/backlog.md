@@ -1,6 +1,7 @@
 ---
 layout: default
 title: structure des dossiers
+chapitre: structure des dossiers
 order: 2
 ---
 
